@@ -1,5 +1,12 @@
 provider "aws" {
   region = "ap-southeast-2" # adjust for your region
+  default_tags {
+    tags = {
+      ManagedBy   = "Terraform"
+      Environment = "dev"
+      Owner       = "team-k"
+    }
+  }
 }
 
 # --- VPC ---
