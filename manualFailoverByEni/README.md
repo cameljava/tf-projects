@@ -18,3 +18,14 @@ Recommended:
 - Move the ENI (with private + Elastic IP) between instances.
 - Don’t move the Elastic IP separately — it’s already bound to the ENI.
 - This allows transparent failover, both for private network traffic and public traffic (Elastic IP).
+
+### pratice 1, manually update in runtime, fix terraform
+
+manually detach eni from primary instance, then attach to failover instance.
+To sync with terraform:
+
+- manually update main.tf file to target state
+- use terraform import and terraform state rm to update state file align with runtime and terraform file
+
+### practice 2, use terraform to excute failover
+
